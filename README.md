@@ -1,7 +1,7 @@
 # Játékprogram (kő, papír, olló)
 
 ## játékmenet 1.0
-- []A számítógép választ egy lehetőséget
+- [x]A számítógép választ egy lehetőséget
 - []A felhasználó megad egy lehetőséget
 
 - Nyerés:
