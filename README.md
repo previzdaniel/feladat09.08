@@ -2,7 +2,7 @@
 
 ## játékmenet 1.0
 - [x]A számítógép választ egy lehetőséget
-- []A felhasználó megad egy lehetőséget
+- [x]A felhasználó megad egy lehetőséget
 
 - Nyerés:
 	- Kő legyőzi az ollót
