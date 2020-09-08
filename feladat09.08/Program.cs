@@ -25,6 +25,20 @@ namespace feladat09_08
             jatekosValasz = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosValasz]);
+            //----------------------------------------------------------------------
+
+            if (lehetoseg[gepValasz] == "kő" && lehetoseg[jatekosValasz] == "papír" || lehetoseg[gepValasz] == "papír" && lehetoseg[jatekosValasz] == "olló" || lehetoseg[gepValasz] == "olló" && lehetoseg[jatekosValasz] == "kő")
+            {
+                Console.WriteLine("A játékos nyert!");
+            }
+            if (lehetoseg[gepValasz] == "kő" && lehetoseg[jatekosValasz] == "olló" || lehetoseg[gepValasz] == "papír" && lehetoseg[jatekosValasz] == "kő" || lehetoseg[gepValasz] == "olló" && lehetoseg[jatekosValasz] == "papír")
+            {
+                Console.WriteLine("Gép nyert");
+            }
+            if (lehetoseg[gepValasz] == "kő" && lehetoseg[jatekosValasz] == "kő" || lehetoseg[gepValasz] == "papír" && lehetoseg[jatekosValasz] == "papír" || lehetoseg[gepValasz] == "olló" && lehetoseg[jatekosValasz] == "olló")
+            {
+                Console.WriteLine("x");
+            }
 
             Console.ReadKey();
         }
