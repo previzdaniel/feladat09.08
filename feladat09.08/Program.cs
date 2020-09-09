@@ -24,10 +24,26 @@ namespace feladat09_08
             {
                 return 1;
             }
-            else 
-                {
-                    return 0;
-                }
+            else
+            {
+                return 0;
+            }
+        }
+
+        static void EredmenyKiiras(int gep, int ember)
+        {
+            switch (EmberNyer(gep, ember))
+            {
+                case 0:
+                    Console.WriteLine("Döntetlen!");
+                    break;
+                case 1:
+                    Console.WriteLine("Skynet nyert!");
+                    break;
+                case 2:
+                    Console.WriteLine("Játékos nyert!");
+                    break;
+            }
         }
         
         static void Main(string[] args)
@@ -45,22 +61,12 @@ namespace feladat09_08
                 Console.Write("Válassz: ");
                 jatekosValasz = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosValasz]);
+                //Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosValasz]);
                 Console.WriteLine("A gép választása: {0}", lehetoseg[gepValasz]);
 
                 Console.WriteLine("Gép: {0} --- játékos {1}", lehetoseg[gepValasz], lehetoseg[jatekosValasz]);
-            switch (EmberNyer(gepValasz, jatekosValasz))
-	        {
-                case 0:
-                    Console.WriteLine("Döntetlen!");
-                   break;
-                case 1:
-                    Console.WriteLine("Kynet nyert!");
-                   break;
-                case 2:
-                    Console.WriteLine("Játékos nyert!");
-                   break;
-	        }
+
+            EredmenyKiiras(gepValasz, jatekosValasz);
 
             Console.ReadKey();
         }
