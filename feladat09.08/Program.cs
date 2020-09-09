@@ -30,6 +30,19 @@ namespace feladat09_08
             }
         }
 
+        static int GepValasztas()
+        {
+            Random veletlen = new Random();
+            return veletlen.Next(0, 2);
+        }
+
+        static int JatekosValasztas()
+        {
+            Console.WriteLine("kő(0), papír(1), olló(2)");
+            Console.Write("Válassz: ");
+            return Convert.ToInt32(Console.ReadLine());
+        }
+
         static void EredmenyKiiras(int gep, int ember)
         {
             Console.WriteLine("Gép: {0} --- játékos {1}", lehetoseg[gep], lehetoseg[ember]);
@@ -49,23 +62,11 @@ namespace feladat09_08
         
         static void Main(string[] args)
         {
-            Random  veletlen= new Random();
             
+            int jatekosValasz = JatekosValasztas();
+            int gepValasz = GepValasztas();
 
-                int gepValasz = veletlen.Next(0, 2);
-
-                //--------------------------------------------------------------------
-
-                int jatekosValasz;
-
-                Console.WriteLine("kő(0), papír(1), olló(2)");
-                Console.Write("Válassz: ");
-                jatekosValasz = Convert.ToInt32(Console.ReadLine());
-
-                //Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosValasz]);
-                Console.WriteLine("A gép választása: {0}", lehetoseg[gepValasz]);
-
-                EredmenyKiiras(gepValasz, jatekosValasz);
+            EredmenyKiiras(gepValasz, jatekosValasz);
 
             Console.ReadKey();
         }
