@@ -9,4 +9,10 @@
 	- Papír legyőzi a követ
 	- Olló legyőzi a papírt
 
+	[] A nyerés megállapítását kiszervezzük metódusba
+		- EmberNyer()
+		- visszaadott érték --> 0/1/2
+		0 = döntetlen /
+		1 = Gép nyer /
+		2 = Ember nyer
 - [x] Kiírják az eredményt
