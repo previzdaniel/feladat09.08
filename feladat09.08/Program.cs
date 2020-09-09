@@ -32,6 +32,7 @@ namespace feladat09_08
 
         static void EredmenyKiiras(int gep, int ember)
         {
+            Console.WriteLine("Gép: {0} --- játékos {1}", lehetoseg[gep], lehetoseg[ember]);
             switch (EmberNyer(gep, ember))
             {
                 case 0:
@@ -64,9 +65,7 @@ namespace feladat09_08
                 //Console.WriteLine("Játékos választása: {0}", lehetoseg[jatekosValasz]);
                 Console.WriteLine("A gép választása: {0}", lehetoseg[gepValasz]);
 
-                Console.WriteLine("Gép: {0} --- játékos {1}", lehetoseg[gepValasz], lehetoseg[jatekosValasz]);
-
-            EredmenyKiiras(gepValasz, jatekosValasz);
+                EredmenyKiiras(gepValasz, jatekosValasz);
 
             Console.ReadKey();
         }
