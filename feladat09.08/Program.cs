@@ -138,18 +138,16 @@ namespace feladat09_08
             Console.ReadKey();
         }
 
-        
+
         private static void StatisztikaFajlba()
         {
             StreamWriter stat = new StreamWriter("Statisztika.txt");
-            while (!tovabb)
-            {
+                
                 for (int i = 0; i < 1; i++)
                 {
-                    stat
+                    stat.Write(menet + ";" + jatekosNyer + ";" + gepNyer);
                 }
-            }
-            stat.Close();
+                stat.Close();
         }
     }
 }
