@@ -59,16 +59,40 @@ namespace feladat09_08
                     break;
             }
         }
+
         
         static void Main(string[] args)
         {
-            
-            int jatekosValasz = JatekosValasztas();
-            int gepValasz = GepValasztas();
+            bool tovabb = true;
 
-            EredmenyKiiras(gepValasz, jatekosValasz);
+            while (tovabb)
+            {
+                int jatekosValasz = JatekosValasztas();
+
+                int gepValasz = GepValasztas();
+
+                EredmenyKiiras(gepValasz, jatekosValasz);
+
+                tovabb = AkarJatszani();
+            }
 
             Console.ReadKey();
+        }
+
+        private static bool AkarJatszani()
+        {
+            Console.WriteLine("**************************************************************");
+            Console.Write("Tovább? [i/n]:");
+            string valasz = Console.ReadLine().ToLower();
+            Console.WriteLine("\n**************************************************************");
+            if (valasz == "i")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
