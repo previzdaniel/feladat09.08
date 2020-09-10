@@ -8,20 +8,27 @@ namespace feladat09_08
 {
     class Program
     {
+        //Tulajdonságok
         static string[] lehetoseg = new string[3] { "kő", "papír", "olló" };
 
+        static int gepNyer = 0;
+        static int jatekosNyer = 0;
+        static int menet = 0;
+        //-----------------------------------------------------------------------
         static int EmberNyer(int gep, int ember)
         {
             if (lehetoseg[gep] == "kő" && lehetoseg[ember] == "papír" ||
                 lehetoseg[gep] == "papír" && lehetoseg[ember] == "olló" ||
                 lehetoseg[gep] == "olló" && lehetoseg[ember] == "kő")
             {
+                jatekosNyer++;
                 return 2;
             }
             else if (lehetoseg[gep] == "kő" && lehetoseg[ember] == "olló" ||
                 lehetoseg[gep] == "papír" && lehetoseg[ember] == "kő" ||
                 lehetoseg[gep] == "olló" && lehetoseg[ember] == "papír")
             {
+                gepNyer++;
                 return 1;
             }
             else
@@ -60,25 +67,6 @@ namespace feladat09_08
             }
         }
 
-        
-        static void Main(string[] args)
-        {
-            bool tovabb = true;
-
-            while (tovabb)
-            {
-                int jatekosValasz = JatekosValasztas();
-
-                int gepValasz = GepValasztas();
-
-                EredmenyKiiras(gepValasz, jatekosValasz);
-
-                tovabb = AkarJatszani();
-            }
-
-            Console.ReadKey();
-        }
-
         private static bool AkarJatszani()
         {
             Console.WriteLine("**************************************************************");
@@ -93,6 +81,41 @@ namespace feladat09_08
             {
                 return false;
             }
+        }
+
+
+        static void Main(string[] args)
+        {
+            bool tovabb = true;
+
+            while (tovabb)
+            {
+                menet++;
+
+                int jatekosValasz = JatekosValasztas();
+
+                int gepValasz = GepValasztas();
+
+                EredmenyKiiras(gepValasz, jatekosValasz);
+
+                tovabb = AkarJatszani();
+            }
+
+            StatisztikaKiiras();
+            {
+
+            }
+
+            Console.ReadKey();
+        }
+
+        
+
+        private static void StatisztikaKiiras()
+        {
+            Console.WriteLine("Menetek száma: {0}, " + 
+                              "\tJátékos győzelmek száma: {1}, " + 
+                              "\tGép győzelmek száma: {2}",menet, jatekosNyer, gepNyer);
         }
     }
 }

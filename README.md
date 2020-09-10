@@ -19,4 +19,7 @@
 	- Kiírás külön metódusba
 
 ## játékmenet 2.0
-- [] Addig játszunk amíg ki nem lépünk a játékból.
+- [x] Addig játszunk amíg ki nem lépünk a játékból.
+
+- [x] Statisztika megvalósítása.
+	- Gép, játékos, menet.
