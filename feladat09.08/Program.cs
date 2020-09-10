@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace feladat09_08
 {
@@ -83,9 +84,18 @@ namespace feladat09_08
             }
         }
 
+        private static void StatisztikaKiiras()
+        {
+            Console.WriteLine("Menetek száma: {0}, " +
+                              "\tJátékos győzelmek száma: {1}, " +
+                              "\tGép győzelmek száma: {2}", menet, jatekosNyer, gepNyer);
+        }
+
 
         static void Main(string[] args)
         {
+            StatisztikaFajlbol();
+
             bool tovabb = true;
 
             while (tovabb)
@@ -102,20 +112,29 @@ namespace feladat09_08
             }
 
             StatisztikaKiiras();
-            {
-
-            }
 
             Console.ReadKey();
         }
 
-        
-
-        private static void StatisztikaKiiras()
+        private static void StatisztikaFajlbol()
         {
-            Console.WriteLine("Menetek száma: {0}, " + 
-                              "\tJátékos győzelmek száma: {1}, " + 
-                              "\tGép győzelmek száma: {2}",menet, jatekosNyer, gepNyer);
+            StreamReader stat = new StreamReader("Statisztika.txt");
+            while (!stat.EndOfStream)
+            {
+                string[] szovegAdat = stat.ReadLine().Split(';');
+                int[] adat = new int[3];
+                //adat[0] = int.Parse(szovegAdat[0]);
+                //adat[1] = int.Parse(szovegAdat[1]);
+                //adat[2] = int.Parse(szovegAdat[2]);
+                for (int i = 0; i < adat.Length; i++)
+                {
+                    adat[i] = int.Parse(szovegAdat[i]);
+                }
+                Console.WriteLine("{0}\t{1}\t{2}",adat[0], adat[1], adat[2]);
+            }
+            stat.Close();
+
+            Console.WriteLine("-----------> Statisztika vége <-----------\n");
         }
     }
 }
