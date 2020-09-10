@@ -15,6 +15,7 @@ namespace feladat09_08
         static int gepNyer = 0;
         static int jatekosNyer = 0;
         static int menet = 0;
+        static bool tovabb = true;
         //-----------------------------------------------------------------------
         static int EmberNyer(int gep, int ember)
         {
@@ -91,12 +92,31 @@ namespace feladat09_08
                               "\tGép győzelmek száma: {2}", menet, jatekosNyer, gepNyer);
         }
 
+        private static void StatisztikaFajlbol()
+        {
+            StreamReader stat = new StreamReader("Statisztika.txt");
+            while (!stat.EndOfStream)
+            {
+                string[] szovegAdat = stat.ReadLine().Split(';');
+                int[] adat = new int[3];
+                //adat[0] = int.Parse(szovegAdat[0]);
+                //adat[1] = int.Parse(szovegAdat[1]);
+                //adat[2] = int.Parse(szovegAdat[2]);
+                for (int i = 0; i < adat.Length; i++)
+                {
+                    adat[i] = int.Parse(szovegAdat[i]);
+                }
+                Console.WriteLine("{0}\t{1}\t{2}", adat[0], adat[1], adat[2]);
+            }
+            stat.Close();
+
+            Console.WriteLine("-----------> Statisztika vége <-----------\n");
+        }
+
 
         static void Main(string[] args)
         {
             StatisztikaFajlbol();
-
-            bool tovabb = true;
 
             while (tovabb)
             {
@@ -113,28 +133,23 @@ namespace feladat09_08
 
             StatisztikaKiiras();
 
+            StatisztikaFajlba();
+
             Console.ReadKey();
         }
 
-        private static void StatisztikaFajlbol()
+        
+        private static void StatisztikaFajlba()
         {
-            StreamReader stat = new StreamReader("Statisztika.txt");
-            while (!stat.EndOfStream)
+            StreamWriter stat = new StreamWriter("Statisztika.txt");
+            while (!tovabb)
             {
-                string[] szovegAdat = stat.ReadLine().Split(';');
-                int[] adat = new int[3];
-                //adat[0] = int.Parse(szovegAdat[0]);
-                //adat[1] = int.Parse(szovegAdat[1]);
-                //adat[2] = int.Parse(szovegAdat[2]);
-                for (int i = 0; i < adat.Length; i++)
+                for (int i = 0; i < 1; i++)
                 {
-                    adat[i] = int.Parse(szovegAdat[i]);
+                    stat
                 }
-                Console.WriteLine("{0}\t{1}\t{2}",adat[0], adat[1], adat[2]);
             }
             stat.Close();
-
-            Console.WriteLine("-----------> Statisztika vége <-----------\n");
         }
     }
 }

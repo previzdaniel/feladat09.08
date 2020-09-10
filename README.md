@@ -9,7 +9,7 @@
 	- Papír legyőzi a követ
 	- Olló legyőzi a papírt
 
-	[x] A nyerés megállapítását kiszervezzük metódusba
+- [x] A nyerés megállapítását kiszervezzük metódusba
 		- EmberNyer()
 		- visszaadott érték --> 0/1/2
 		0 = döntetlen /
@@ -24,7 +24,7 @@
 - [x] Statisztika megvalósítása.
 	- Gép, játékos, menet.
 
-- [] Eredmények fájlba írása és megjelenítése.
+- [x] Eredmények fájlba írása és megjelenítése.
 	- 1. érték --> menet
 	- 2. érték --> játékos
 	- 3. érték --> gép
