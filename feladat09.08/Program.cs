@@ -94,6 +94,8 @@ namespace feladat09_08
 
         private static void StatisztikaFajlbol()
         {
+            Console.WriteLine("---------------> Statisztika <---------------");
+            Console.WriteLine("Menet\tJátékos győzelmek\tGép győzelmek");
             StreamReader stat = new StreamReader("Statisztika.txt");
             while (!stat.EndOfStream)
             {
@@ -106,11 +108,11 @@ namespace feladat09_08
                 {
                     adat[i] = int.Parse(szovegAdat[i]);
                 }
-                Console.WriteLine("{0}\t{1}\t{2}", adat[0], adat[1], adat[2]);
+                Console.WriteLine("|{0,3}|\t      |{1,3}|\t\t    |{2,3}|", adat[0], adat[1], adat[2]);
             }
             stat.Close();
 
-            Console.WriteLine("-----------> Statisztika vége <-----------\n");
+            Console.WriteLine("-------------> Statisztika vége <-------------\n");
         }
 
 
@@ -141,13 +143,13 @@ namespace feladat09_08
 
         private static void StatisztikaFajlba()
         {
-            StreamWriter stat = new StreamWriter("Statisztika.txt");
-                
-                for (int i = 0; i < 1; i++)
-                {
-                    stat.Write(menet + ";" + jatekosNyer + ";" + gepNyer);
-                }
-                stat.Close();
+            string adat = menet.ToString()+";"+
+                          jatekosNyer.ToString()+";"+
+                          gepNyer.ToString();
+            //FileStream ki = new FileStream("Statisztika.txt", FileMode.Append);
+            StreamWriter sKi = new StreamWriter("Statisztika.txt", true);
+            sKi.WriteLine(adat);
+            sKi.Close();
         }
     }
 }
